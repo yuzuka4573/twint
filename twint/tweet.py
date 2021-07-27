@@ -3,7 +3,7 @@ from datetime import datetime, timezone
 
 import logging as logme
 from googletransx import Translator
-# ref. 
+# ref.
 # - https://github.com/x0rzkov/py-googletrans#basic-usage
 translator = Translator()
 
@@ -98,6 +98,7 @@ def Tweet(tw, config):
     t.timezone = strftime("%z", localtime())
     t.mentions = _get_mentions(tw)
     t.reply_to = _get_reply_to(tw)
+    t.in_reply_to_status_id_str = tw["in_reply_to_status_id_str"]
     try:
         t.urls = [_url['expanded_url'] for _url in tw['entities']['urls']]
     except KeyError:

@@ -35,7 +35,7 @@ def Tweet(config, t):
         output = output.replace("{trans_dest}", t.trans_dest)
     else:
         logme.debug(__name__+':Tweet:notFormat')
-        output = f"{t.id_str} {t.datestamp} {t.timestamp} {t.timezone} "
+        output = f"{t.id_str} {t.datestamp} {t.timestamp} {t.in_reply_to_status_id_str} "
 
         # TODO: someone who is familiar with this code, needs to take a look at what this is <also see tweet.py>
         # if t.retweet:
